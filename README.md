@@ -7,7 +7,7 @@
 `ctrl-c` or `docker-compose down`
 
 Change values in `/config/projectsend/sys.config.php` to match your mysql configuration (see docker-compose.yml).
-Be careful hostname must be the name of the service in the docker-compose file (here mysql)
+Be careful hostname must be the name of the service in the docker-compose file (here 'mysql')
 
 Then `docker-compose up`
 
