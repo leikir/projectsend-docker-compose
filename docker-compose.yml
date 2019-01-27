@@ -13,18 +13,11 @@ services:
      - ./mysql:/var/lib/mysql
 
   projectsend:
-    build: ./docker-projectsend/
+    image: linuxserver/projectsend:117
     depends_on:
       - mysql
     environment:
-      PUID: 520
-      PGID: 20
       MAX_UPLOAD: 10000
-      DB_DRIVER: mysql
-      DB_HOST: mysql
-      DB_NAME: ps_db
-      DB_USER: ps_user
-      DB_PASSWORD: ps_password
     ports:
       - 8000:80
     volumes:
