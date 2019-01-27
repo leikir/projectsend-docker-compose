@@ -1,0 +1,9 @@
+# Temp files
+.DS_Store
+
+# ProjectSend
+/config
+/data
+
+# MySQL
+/mysql

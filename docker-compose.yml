@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: ps_db
+      MYSQL_USER: ps_user
+      MYSQL_PASSWORD: ps_password
+    volumes:
+     - ./mysql:/var/lib/mysql
+
+  projectsend:
+    build: ./docker-projectsend/
+    depends_on:
+      - mysql
+    environment:
+      PUID: 520
+      PGID: 20
+      MAX_UPLOAD: 10000
+      DB_DRIVER: mysql
+      DB_HOST: mysql
+      DB_NAME: ps_db
+      DB_USER: ps_user
+      DB_PASSWORD: ps_password
+    ports:
+      - 8000:80
+    volumes:
+      - ./config:/config
+      - ./data:/data
